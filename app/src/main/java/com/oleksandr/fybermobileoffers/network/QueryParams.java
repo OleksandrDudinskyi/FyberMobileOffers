@@ -14,4 +14,8 @@ public class QueryParams {
     public static final String GOOGLE_AD_ID = "google_ad_id";
     public static final String GOOGLE_AD_ID_TRACKING = "google_ad_id_limited_tracking_enabled";
     public static final String PUBO = "pub0";
+    public static final String IP = "ip";
+    public static final String DEVICE_ID = "device_id";
+    public static final String PS_TIME = "ps_time";
+    public static final String PAGE = "page";
 }
