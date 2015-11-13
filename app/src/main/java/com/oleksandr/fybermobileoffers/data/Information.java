@@ -13,7 +13,7 @@ public class Information {
     private String country;
     private String language;
     private String supportUrl;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      *

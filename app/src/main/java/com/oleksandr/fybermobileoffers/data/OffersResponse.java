@@ -14,8 +14,8 @@ public class OffersResponse {
     private Integer count;
     private Integer pages;
     private Information information;
-    private List<Offer> offers = new ArrayList<Offer>();
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private List<Offer> offers = new ArrayList<>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      *

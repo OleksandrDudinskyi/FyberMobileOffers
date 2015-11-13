@@ -14,11 +14,11 @@ public class Offer {
     private String teaser;
     private String requiredActions;
     private String link;
-    private List<OfferType> offerTypes = new ArrayList<OfferType>();
+    private List<OfferType> offerTypes = new ArrayList<>();
     private Thumbnail thumbnail;
     private Integer payout;
     private TimeToPayout timeToPayout;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      *

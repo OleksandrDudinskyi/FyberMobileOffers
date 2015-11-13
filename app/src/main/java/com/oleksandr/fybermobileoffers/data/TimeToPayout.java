@@ -9,7 +9,7 @@ import java.util.Map;
 public class TimeToPayout {
     private Integer amount;
     private String readable;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      *

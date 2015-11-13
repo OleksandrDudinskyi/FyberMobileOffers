@@ -9,7 +9,7 @@ import java.util.Map;
 public class OfferType {
     private Integer offerTypeId;
     private String readable;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      *

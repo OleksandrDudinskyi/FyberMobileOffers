@@ -10,9 +10,11 @@ import android.view.View;
 
 import com.oleksandr.fybermobileoffers.R;
 import com.oleksandr.fybermobileoffers.data.OffersResponse;
+import com.oleksandr.fybermobileoffers.network.QueryParams;
 import com.oleksandr.fybermobileoffers.network.RetrofitService;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import rx.Subscriber;
@@ -34,11 +36,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_scrolling);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        try {
-//            AdvertisingIdClient.getAdvertisingIdInfo(getBaseContext()).getId();
-//        } catch (IOException | GooglePlayServicesNotAvailableException | GooglePlayServicesRepairableException e) {
-//            e.printStackTrace();
-//        }
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,10 +59,19 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    public void sendRequest() {
+    public void sendRequest(String appid, String uid, String pub0) {
         RetrofitService retrofitService = new RetrofitService();
         Map<String, String> params = new HashMap<>();
-        Subscription subscription = retrofitService.getOffers(params).subscribeOn(Schedulers.newThread()).
+        params.put(QueryParams.FORMAT, "json");
+        params.put(QueryParams.APPID, appid);
+        params.put(QueryParams.UID, uid);
+        params.put(QueryParams.LOCALE, Locale.getDefault().getLanguage());
+        params.put(QueryParams.OS_VERSION, android.os.Build.VERSION.RELEASE);
+        long unixTime = System.currentTimeMillis() / 1000L;
+        params.put(QueryParams.TIMESTAMP, Long.toString(unixTime));
+        params.put(QueryParams.HASHKEY, "eff26c67f527e6817bf6935c75f8cc5cc5cffac2");
+        params.put(QueryParams.PUBO, pub0);
+        Subscription subscription = retrofitService.getOffers(params).subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<OffersResponse>() {
             @Override
             public void onCompleted() {

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.oleksandr.fybermobileoffers.Constants;
 import com.oleksandr.fybermobileoffers.R;
 
 /**
@@ -37,7 +38,7 @@ public class VariableParamsDialog extends DialogFragment {
         mSendRequestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity) getActivity()).sendRequest();
+                ((MainActivity) getActivity()).sendRequest(Constants.appid, Constants.uid, Constants.pub0);
             }
         });
         return view;

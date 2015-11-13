@@ -9,7 +9,7 @@ import java.util.Map;
 public class Thumbnail {
     private String lowres;
     private String hires;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     /**
      *
